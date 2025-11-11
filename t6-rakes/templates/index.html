@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Google Fonts Link For Icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0"/>
+    <link rel="stylesheet" href="{{url_for('static',filename='style.css')}}" />
+    <script src="{{url_for('static',filename='script.js')}}" defer></script>
+
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon_io/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon_io/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon_io/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='favicon_io/site.webmanifest')}}">
+
+    <title>TA_sekar_2111004</title>
+    <!-- HTML Meta Tags -->
+    <meta name="description" content="InpaintingImage FastMarching" />
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="TA_sekar_2111004" />
+    <meta itemprop="description" content="InpaintingImage FastMarching" />
+    <meta itemprop="image" content="https://raw.githubusercontent.com/aqlidiningrat/all_favicon/refs/heads/main/rakes-192x192.png" />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://sekar2111004.pythonanywhere.com/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TA_sekar_2111004" />
+    <meta property="og:description" content="InpaintingImage FastMarching" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/aqlidiningrat/all_favicon/refs/heads/main/rakes-192x192.png" />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="TA_sekar_2111004" />
+    <meta name="twitter:description" content="InpaintingImage FastMarching" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/aqlidiningrat/all_favicon/refs/heads/main/rakes-192x192.png" />
+    <!-- Meta Tags Generated via https://heymeta.com -->
+  </head>
+  <body>
+    <div class="container">
+      {%if filename%}
+      <span>yangDiupload bukanFileGambar</span><hr>
+      {%else%}
+      <span>Tugas Akhir Sekar Lucia Ningrum 2111004</span><hr>
+      {%endif%}
+      <div class="slider-wrapper">
+        <button id="prev-slide" class="slide-button material-symbols-rounded">chevron_left</button>
+        {%if filename%}
+        <h1>{{filename}}</h1>
+        {%else%}
+        <ul class="image-list">
+          {%for fname in listOutputImage%}
+          <img class="image-item" src="{{url_for('displayOutputImage',filename=fname)}}" alt="{{fname}}" width="50%" height="50%">
+          {%endfor%}
+        </ul>
+        <button id="next-slide" class="slide-button material-symbols-rounded">chevron_right</button>
+        {%endif%}
+      </div>
+      <div class="slider-scrollbar">
+        <div class="scrollbar-track">
+          <div class="scrollbar-thumb"></div>
+        </div>
+      </div>
+      <span><i>Inpainting</i> Citra Digital Metode <i>Fast Marching</i></span><br>
+      {%if filenameOutputImage%}
+      <span id="tombolDownloadOutputImage"><a href="{{url_for('downloadOutputImage', filename=filenameOutputImage)}}">downloadOutputImage</a></span>
+      {%endif%}
+      <form class="" action="/" method="post" enctype="multipart/form-data">
+        <input class="button" type="file" name="file" value="" required autocomplete="off">
+        <button class="button" type="submit" name="button"><i>Inpainting</i></button>
+      </form>
+    </div>
+    
+    <!-- js hapus tombol ketika sudah diklik -->
+    <script type="text/javascript">
+      const button = document.getElementById('tombolDownloadOutputImage');
+      button.addEventListener('click', function(){
+        button.classList.add('hidden');
+      })
+    </script>
+  </body>
+</html>
