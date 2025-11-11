@@ -1,0 +1,65 @@
+/* Google Fonts - Poppins */
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+*{
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  font-family: "Caveat", sans-serif;
+}
+body{
+  background-image: url('images/back-second.png');
+  background-size: cover;
+  text-align: center;
+}
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  color: black;
+}
+#editor{
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.judul, .judul a{
+  text-align: center;
+  margin:0px 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: black;
+}.judul a:hover{
+  font-size: 1.1rem;
+}.judul a:active{
+  font-size: 0.8rem;
+}
+canvas{
+  border-radius: 10px;
+}
+#alert{
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: black;
+  text-align: center;
+}
+button.button, a.button{
+  background-color: lavenderblush;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 1.5rem;
+  color:#333;
+  /* width:20vw; */
+  /* height: 20px; */
+  margin: 0.5rem 1rem;
+  text-decoration: none;
+  /* font-weight: bold; */
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.button:hover{
+  color: #fff;
+  background-color: pink;
+}
+.button:active{
+  padding: 5px 10px;
+}

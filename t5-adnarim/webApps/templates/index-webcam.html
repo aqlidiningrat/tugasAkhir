@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='main.css')}}">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon_io/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon_io/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon_io/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='favicon_io/site.webmanifest')}}">
+    <title>TA_Miranda_2111017</title>
+  </head>
+  <body>
+    <div class="judul">tugasAkhir Miranda klasifikasiJenisKelamin padaCitraWajah minimPencahayaan metodeKNN&SVM<a href="/">Kembali</a></div>
+    <h2>ambilGambarWebcam</h2>
+    <video autoplay id="videoFeed" width="640" height="480" style="border-radius:10px;"></video><br>
+    <div id="alert"><p><i class="fa fa-bell"></i></p></div>
+    <button id="captureBtn" class="button" onclick="capture('{{dari}}', {{idWebcam}})"
+      style="display:none;">tangkapLayar</button>
+    <script src="{{url_for('static', filename='script-webcam.js')}}"></script>
+  </body>
+</html>

@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon_io/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon_io/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon_io/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='favicon_io/site.webmanifest')}}">
+    <title>TA_Miranda_2111017</title>
+  </head>
+  <body>
+    {%if render=='yangDiupload bukanFileGambar'%}
+    <script type="text/javascript">
+      alert('{{render}}.. {{filename}}');
+    </script>
+    {%endif%}
+
+    <!-- header -->
+    <header>
+      <a href="/" class="logo white">Mii raa</a>
+      <div class="search">
+        <form action="/" method="post">
+          <input type="text" name="miiraa" placeholder="TA_Miranda_2111017" autocomplete="off">
+          <input type="hidden" name="dari" value="{{dari}}">
+          <input type="hidden" name="idDB" value="{{idDB}}">
+        </form>
+        <i class="bi bi-search"></i>
+      </div>
+    </header>
+
+    <!-- banner hero -->
+    <div class="banner">
+      <div class="banner-section one active">
+        {%if img_decode%}<img src="data:image/jpeg;base64,{{img_decode}}" alt="img_decode">
+        {%else%}<img src="{{url_for('static', filename='images/girl-1.png')}}" alt="girl-1">{%endif%}
+        <div class="content">
+          {%if img_decode%}<h2>Pencahayaan Normal</h2>
+          {%else%}<h2>Klasifikasi jenisKelamin</h2>{%endif%}
+          <a href="" class="banner-btn" data-target="banner-content-one">
+            {%if img_decode%}<i class="bi bi-arrow-right"></i>
+            {%else%}<i class="bi bi-arrow-right"></i>{%endif%}
+          </a>
+        </div>
+      </div>
+      <div class="banner-section two">
+        {%if img_decode_lv3%}<img src="data:image/jpeg;base64,{{img_decode_lv3}}" alt="img_decode_lv3">
+        {%else%}<img src="{{url_for('static', filename='images/girl-3.png')}}" alt="girl-1">{%endif%}
+        <div class="content">
+          {%if img_decode_lv3%}<h2><i>lowBrightnes</i> 30%</h2>
+          {%else%}<h2>padaCitraWajah</h2>{%endif%}
+          <a href="" class="banner-btn" data-target="banner-content-two">
+            {%if img_decode_lv3%}<i class="bi bi-arrow-right"></i>
+            {%else%}<i class="bi bi-camera"></i>{%endif%}
+          </a>
+        </div>
+      </div>
+      <div class="banner-section three">
+        {%if img_decode_lv2%}<img src="data:image/jpeg;base64,{{img_decode_lv2}}" alt="img_decode_lv2">
+        {%else%}<img src="{{url_for('static', filename='images/girl-7.png')}}" alt="girl-7">{%endif%}
+        <div class="content">
+          {%if img_decode_lv2%}<h2><i>lowBrightnes 20%</i></h2>
+          {%else%}<h2>minimPencahayaan</h2>{%endif%}
+          <a href="" class="banner-btn" data-target="banner-content-three">
+            {%if img_decode_lv2%}<i class="bi bi-arrow-left"></i>
+            {%else%}<i class="bi bi-folder"></i>{%endif%}
+          </a>
+        </div>
+      </div>
+      <div class="banner-section four">
+        {%if img_decode_lv1%}<img src="data:image/jpeg;base64,{{img_decode_lv1}}" alt="img_decode_lv1">
+        {%else%}<img src="{{url_for('static', filename='images/girl-2.png')}}" alt="girl-2.png">{%endif%}
+        <div class="content">
+          {%if img_decode_lv1%}<h2><i>lowBrightnes 10%</i></h2>
+          {%else%}<h2><i>metode KNN&SVM</i></h2>{%endif%}
+          <a href="" class="banner-btn" data-target="banner-content-four">
+            {%if img_decode_lv1%}<i class="bi bi-arrow-left"></i>
+            {%else%}<i class="bi bi-arrow-left"></i>{%endif%}
+          </a>
+        </div>
+      </div>
+
+      <!-- banner content to reveal -->
+      <div class="banner-content">
+        <div class="item banner-content-one">
+          {%if img_decode%}
+          <h2>Pencahayaan Normal</h2>
+          <img src="data:image/jpeg;base64,{{img_decode}}" alt="img_decode" style="border-radius:10px;">
+          {%else%}
+          <h2>Klasifikasi jenisKelamin</h2>
+          <p>Pada pengolahan citra, klasifikasi memungkinkan sistem untuk mengenali dan mengidentifikasi objek atau atribut tertentu dari gambar digital. Proses ini memerlukan teknik ekstraksi fitur yang andal untuk mengubah informasi visual menjadi representasi numerik yang dapat diolah oleh algoritma klasifikasi.</p>
+          {%endif%}
+        </div>
+        <div class="item banner-content-two">
+          {%if img_decode_lv3%}
+          <h2><i>lowBrightnes</i> 30%</h2>
+          <span>Persentase Laki-Laki: {{arrPredict3[1]}}% || Perempuan: {{arrPredict3[2]}}%</span>
+          <img src="data:image/jpeg;base64,{{img_decode_lv3}}" alt="img_decode_lv3" style="border-radius:10px;">
+          {%else%}
+          <h2>ambilGambarWebcam</h2>
+          <a href="{{url_for('ambilGambarWebcamGet')}}" style="font-size:2.5rem; text-align:center;"><i class="bi bi-camera"></i></a>
+          <p>Tekan logo camera yang ada diatas, lalu lihat camera depan anda, dan pastikan pencahayaan disekitar cerah yaa. Atau paling tidak jangan gelap lah. Karna setelah ini nanti gambarnya akan dipotong pada area wajahnya, dan terakhir proses mengatur <i>lowBrightness</i> citra wajah dan langsung dikalsifikasikan.. &#128922;</p>
+          {%endif%}
+        </div>
+        <div class="item banner-content-three">
+          {%if img_decode_lv2%}
+          <h2><i>lowBrightnes</i> 20%</h2>
+          <span>Persentase Laki-Laki: {{arrPredict2[1]}}% || Perempuan: {{arrPredict2[2]}}%</span>
+          <img src="data:image/jpeg;base64,{{img_decode_lv2}}" alt="img_decode_lv2" style="border-radius:10px;">
+          {%else%}
+          <h2>pilihGambar</h2>
+          <form class="" action="/pilihGambar" method="post" enctype="multipart/form-data">
+            <input type="file" name="pilihGambar" required style="cursor:pointer; padding:10px; border:1px solid black; border-radius:3px;">
+            <button type="submit" style="cursor:pointer; padding:10px;">Pilih</button>
+          </form>
+          <p>Gambar yang dipilih harus ada wajah orangnya yaa. Nanti gambarnya tu dipotong dulu pas diarea wajahnya, setelah itu baru pilih <i>low brightnes</i> dan lihat hasil klasifikasi. Kalau masih bingung pilih aja dulu gambarnya, nanti ada jalannya.. &#128522;</p>
+          {%endif%}
+        </div>
+        <div class="item banner-content-four">
+          {%if img_decode_lv1%}
+          <h2><i>lowBrightnes</i> 10%</h2>
+          <span>Persentase Laki-Laki: {{arrPredict1[1]}}% || Perempuan: {{arrPredict1[2]}}%</span>
+          <img src="data:image/jpeg;base64,{{img_decode_lv1}}" alt="img_decode_lv1" style="border-radius:10px;">
+          {%else%}
+          <h2>KNN&SVM</h2>
+          <p>Nilai 𝑘 dalam KNN menentukan berapa banyak tetangga yang akan dilihat untuk mengambil keputusan, nilai ini sangat penting karena memengaruhi hasil klasifikasi.<br>
+            C Merupakan istilah regularisasi yang menyeimbangkan maksimalisasi margin dan penalti salah klasifikasi. Nilai C yang lebih tinggi memaksa hukuman yang lebih ketat untuk kesalahan klasifikasi SVM.</p>
+          {%endif%}
+        </div>
+      </div>
+      <!-- close button-->
+      <a href="" class="close-btn"><i class="bi bi-x-circle"></i></a>
+    </div>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+  </body>
+</html>

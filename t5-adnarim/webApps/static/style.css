@@ -1,0 +1,327 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root{
+  --primary: #005a68;
+  --second: #b20153;
+  --third: #3a5801;
+  --fourth: #873200;
+}
+
+body{
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* header */
+header{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 50px;
+  z-index: 1000;
+}
+
+.logo{
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 40px;
+  color: #000000;
+  letter-spacing: 2px;
+  font-weight: 800;
+  text-decoration: none;
+  /* text-transform: uppercase; */
+  transition: 0.5s;
+}
+
+.logo.white{
+  color: white;
+}
+
+.search{
+  position: relative;
+  width: 300px;
+  height: 40px;
+  background: #ffffff;
+  border-radius:20px;
+}
+
+.search input{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  color: #000000;
+  background: transparent;
+  border: none;
+  outline: none;
+  border-radius: 20px;
+  /* text-transform: uppercase; */
+  padding: 0 10px 0 40px;
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.3);
+}
+
+.search input::placeholder{
+  color: #000000;
+}
+
+.search i{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: 10px;
+  padding-right: 10px;
+  color: #000000;
+  border-right: 1px solid black;
+}
+
+/* banner */
+.banner{
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: 0 100px;
+  background: #ffffff;
+  overflow: hidden;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* banner section */
+.banner-section{
+  position: absolute;
+  top: 0;
+  width: 25%;
+  height: 100%;
+  transition: 0.5s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  cursor: pointer;
+  transform: skew(0, 0);
+}
+
+.banner.active .banner-section:nth-child(odd){
+  transform: skew(0, -35deg);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+.banner.active .banner-section:nth-child(even){
+  transform: skew(0, 35deg);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.3);
+}
+.banner.active .banner-section{
+  width:15%;
+  background: var(--second);
+}
+.banner.active .banner-section.two{
+  left:15%;
+  background: var(--third);
+}
+.banner.active .banner-section.three{
+  right: 15%;
+  left: auto;
+  background: var(--primary);
+}
+.banner.active .banner-section.four{
+  right: 0;
+  left: auto;
+  background: var(--fourth);
+}
+.banner.active .banner-section img{
+  opacity: 1;
+  visibility: visible;
+  width: 100%;
+}
+
+.banner-section img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 150%;
+  z-index:800;
+  transition: 0.5s;
+  object-fit: cover;
+  object-position: center;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.banner-section:hover img,
+.banner-section.active img{
+  opacity: 1;
+  visibility: visible;
+}
+
+.banner-section::after{
+  position: absolute;
+  content: '';
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.5);
+  backdrop-filter: blur(5px);
+  z-index: 900;
+}
+
+/* banner-section.one */
+.banner-section.one{
+  left: 0;
+}
+.banner-section.one:hover::after,
+.banner-section.one.active::after{
+  background: var(--second);
+  opacity: 0.6;
+}
+
+/* banner-section.two */
+.banner-section.two{
+  left: 25%;
+}
+.banner-section.two:hover::after,
+.banner-section.two.active::after{
+  background: var(--third);
+  opacity: 0.6;
+}
+
+/* banner-section.three */
+.banner-section.three{
+  left: 50%;
+}
+.banner-section.three:hover::after,
+.banner-section.three.active::after{
+  background: var(--primary);
+  opacity: 0.6;
+}
+
+/* banner-section.four */
+.banner-section.four{
+  left: 75%;
+}
+.banner-section.four:hover::after,
+.banner-section.four.active::after{
+  background: var(--fourth);
+  opacity: 0.6;
+}
+.banner-section.four:hover img{
+  right: 0;
+  left: auto;
+}
+
+/* banner-section.content */
+.banner-section .content{
+  position: relative;
+  color: #000000;
+  z-index: 1000;
+  transition: 0.5s;
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 40px;
+}
+
+.banner-section:hover .content,
+.banner-section.active .content{
+  color:#ffffff;
+}
+
+.banner-section .content h2{
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 1.3rem;
+  font-weight:600;
+}
+
+.banner-section .banner-btn{
+  border: 2px solid black;
+  color: black;
+  border-radius: 30px;
+  padding: 10px 30px;
+  width: 150px;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 30px;
+  transition: 0.5s;
+}
+
+.banner-section:hover .banner-btn,
+.banner-section.active .banner-btn{
+  color: white;
+  border: 2px solid white;
+}
+
+.banner-section .banner-btn:hover{
+  transform: translateX(20px);
+}
+
+/* banner section content on reveal */
+.banner .banner-content .item{
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+  position: absolute;
+  top: 50%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  width: 30vw;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 700;
+}
+.banner .banner-content .item.active{
+  opacity: 1;
+  visibility: visible;
+}
+.banner .banner-content .item h2{
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 1.6rem;
+  text-align: center;
+}
+.banner .banner-content .item p{
+  font-weight: 300;
+  letter-spacing: 1px;
+  line-height: 1.5;
+  text-align: justify;
+}
+.banner .banner-content .item span{
+  font-family: 'Berkshire Swash', cursive;
+  font-size: 0.9rem;
+  font-weight:300;
+  text-align: center;
+  margin: -15px 0px;
+}
+
+/* banner close button */
+.close-btn{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000000;
+  bottom: 10%;
+  font-size: 2.5rem;
+  opacity: 0;
+  visibility: hidden;
+  transition: 1s;
+  z-index: 1000;
+}
+
+.banner.active .close-btn{
+  opacity: 1;
+  visibility: visible;
+}
