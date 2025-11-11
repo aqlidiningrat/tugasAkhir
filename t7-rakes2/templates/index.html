@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TA_Sekar_2111004</title>
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='site.webmanifest')}}">
+    
+  </head>
+  <body>
+    <div class="site-content">
+      {%if not img_decode%}
+      <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExZjB3NjI1YmtsZGhuOTg5b3h5bmdvcHlubTExejVqc3h3ZmFwZDVsdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/VZyIuRXCi8O8WVE6nA/giphy.gif" alt="captureSignaturePad.jpg" id="heroVideo">
+      {%else%}
+      <img src="data:image/jpeg;base64,{{img_decode}}" alt="img_decode" id="heroVideo">
+      {%endif%}
+    </div>
+    <div class="container">
+      <div class="nav">
+        <div class="logo">
+          {%if not img_decode%}
+          <a href="/">T.a_Sekar_Lucia_Ningrum_2111004</a>
+          {%else%}
+          <a href="/" style="color:{{color}};">{{accuracy}}</a>
+          {%endif%}
+        </div>
+        <div class="links">
+          {%if not img_decode%}
+          <a href="{{url_for('tulisTandaTanganGet')}}">tulisTandaTangan</a>
+          <a href="{{url_for('uploadGambarTandaTanganGet')}}">uploadGambar</a>
+          {%else%}
+          <a href="{{url_for('tulisTandaTanganGet')}}" style="color:{{color}};">tulisTandaTangan</a>
+          <a href="{{url_for('uploadGambarTandaTanganGet')}}" style="color:{{color}};">uploadGambar</a>
+          {%endif%}
+        </div>
+      </div>
+      <div class="hero-copy">
+        {%if not img_decode%}
+        <p>Metode <i>Contour Image</i> Dan <i>K-NearestNeighbor</i> Untuk</p>
+        <h1>autentikasiKeaslian_tandaTangan</h1>
+        {%else%}
+        {%endif%}
+      </div>
+      <div class="footer">
+        <div class="links">
+          {%if not img_decode%}
+          <a href="#">Studi Kasus: Tanda Tangan Para Dosen Fakultas Teknik</a>
+          {%else%}
+          <a href="#" style="color:{{color}};">{{y_predict}}</a>
+          {%endif%}
+        </div>
+        <div class="cta">
+          {%if not img_decode%}
+          <a href="#">Prodi Teknik Komputer USCND (2025)</a>
+          {%else%}
+          <a href="#" style="color:{{color}};">T.a_Sekar_Lucia_Ningrum_2111004</a>
+          {%endif%}
+        </div>
+      </div>
+    </div>
+    <canvas id="draw"></canvas>
+    <script src="{{url_for('static', filename='script.js')}}"></script>
+  </body>
+</html>

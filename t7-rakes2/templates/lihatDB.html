@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>TA_Sekar_2111004</title>
+    <style media="screen">
+      body{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='site.webmanifest')}}">
+  </head>
+  <body>
+    <table border="" cellpadding="5">
+      <caption>TA_Sekar_2111004</caption>
+      <caption>sekar.db</caption>
+      <tr>
+        <td><a href="{{url_for('lihatTB', namaTable='signaturePad')}}">tabel signaturePad</a></td>
+        <td><a href="{{url_for('lihatTB', namaTable='uploadGambar')}}">tabel uploadGambar</a></td>
+        <td><a href="{{url_for('lihatTB', namaTable='autentikasiTandaTangan')}}">tabel autentikasiTandaTangan</a></td>
+      </tr>
+    </table>
+    {%if not namaTable%}
+    {%else%}
+    <table border="">
+      <caption>tabel {{namaTable}}</caption>
+      <tr>
+        <th>no</th>{%for i in df.columns %}<th>{{i}}</th>{%endfor%}
+      </tr>
+      {%for j in df.index%}
+      <tr>
+        <td>{{j}}</td>
+        <td>{{df.values[j][0]}}</td><td>{{df.values[j][1]}}</td><td>{{df.values[j][2]}}</td>
+        <td><img src="data:image/jpeg;base64,{{df.values[j][3]}}" alt="data:image/jpeg;base64,{img_decode}"></td>
+      </tr>
+      {%endfor%}
+    </table>
+    {%endif%}
+  </body>
+</html>
