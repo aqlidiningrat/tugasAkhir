@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<!--=== Coding by CodingLab | www.codinglabweb.com === -->
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style_bos.css')}}">
+  <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+  <title>Bos AMS</title>
+  <!-- favicon_io -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='favicon_io/apple-touch-icon.png')}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='favicon_io/favicon-32x32.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename='favicon_io/favicon-16x16.png')}}">
+  <link rel="manifest" href="{{url_for('static',filename='favicon_io/site.webmanifest')}}">
+</head>
+<body>
+  <nav>
+    <div class="logo-name">
+      <div class="logo-image"><img src="{{url_for('static',filename='favicon_io/android-chrome-512x512.png')}}" alt=""></div>
+      <span class="logo_name">Bos AMS</span>
+    </div>
+    <div class="menu-items">
+      <ul class="nav-links">
+        {%if rekap == 'dataPenjualan'%}
+        <li><a href="{{url_for('home5')}}"><i class="uil uil-estate"></i><span class="link-name">dataPenjualan</span></a></li>
+        <li><a href="{{url_for('home6', thrg=thrg, brgtrjl=brgtrjl)}}"><i class="uil uil-files-landscapes"></i><span class="link-name">penjualan_perbulan</span></a></li>
+        <li><a href="{{url_for('home7', thrg=thrg, brgtrjl=brgtrjl)}}"><i class="uil uil-chart"></i><span class="link-name">prediksi_penjualan</span></a></li>
+        <!-- <li><a href="#"><i class="uil uil-thumbs-up"></i><span class="link-name">jhlknwc</span></a></li> -->
+        <!-- <li><a href="#"><i class="uil uil-comments"></i><span class="link-name">Comment</span></a></li> -->
+        <!-- <li><a href="#"><i class="uil uil-share"></i><span class="link-name">Share</span></a></li> -->
+        {%else%}
+        <li><a href="{{url_for('home5')}}"><i class="uil uil-estate"></i><span class="link-name">dataPenjualan</span></a></li>
+        <li><a href="{{url_for('home6', thrg=thrg, brgtrjl=brgtrjl)}}"><i class="uil uil-files-landscapes"></i><span class="link-name">penjualan_perbulan</span></a></li>
+        <li><a href="{{url_for('home7', thrg=thrg, brgtrjl=brgtrjl)}}"><i class="uil uil-chart"></i><span class="link-name">prediksi_penjualan</span></a></li>
+        {%endif%}
+      </ul>
+      <ul class="logout-mode">
+        <li><a href="{{url_for('home')}}"><i class="uil uil-signout"></i><span class="link-name">Logout</span></a></li>
+        <li class="mode"><a href="#"><i class="uil uil-moon"></i><span class="link-name">Dark Mode</span></a><div class="mode-toggle"><span class="switch"></span></div></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="dashboard">
+      <div class="top">
+        <i class="uil uil-bars sidebar-toggle"></i>
+        <div class="search-box"><i class="uil uil-search"></i><input type="text" placeholder="Cari disini..." autocomplete="off"></div>
+        <img src="{{url_for('static',filename='images/fikri.jpg')}}" alt="">
+      </div>
+      <div class="dash-content">
+        <div class="overview">
+          {%if rekap == 'dataPenjualan'%}<div class="title"><i class="uil uil-tachometer-fast-alt"></i><span class="text">data penjualan</span></div>
+          {%elif rekap == 'penjualan_perbulan'%}<div class="title"><i class="uil uil-tachometer-fast-alt"></i><span class="text">penjualan perbulan</span></div>
+          {%else%}{%endif%}
+
+          {%if rekap != 'prediksi_penjualan'%}
+          <div class="boxes">
+            <div class="box box1"><i class="uil uil-thumbs-up"></i><span class="text">transaksi penjualan</span><span class="number">{{ttr}}</span></div>
+            <div class="box box2"><i class="uil uil-comments"></i><span class="text">barang terjual</span><span class="number">{{brgtrjl}}</span></div>
+            <div class="box box3"><i class="uil uil-share"></i><span class="text">omset</span><span class="number">{{omset}}.000</span></div>
+          </div>
+          {%else%}
+          {%endif%}
+        </div>
+        {%if rekap == 'dataPenjualan'%}
+        <div class="activity">
+          <div class="title"><i class="uil uil-clock-three"></i><span class="text">transaksi penjualan</span></div>
+          <div class="activity-data">
+            <div class="data names"><span class="data-title">tanggal</span>{% for i in ind%}<span class="data-list">{{df[i][0]}}</span>{%endfor%}</div>
+            <div class="data email"><span class="data-title">pembeli</span>{%for i in ind%}<span class="data-list">{{df[i][1]}}</span>{%endfor%}</div>
+            <div class="data joined"><span class="data-title">jenisBarang</span>{%for i in ind%}<span class="data-list">{{df[i][2]}}</span>{%endfor%}</div>
+            <div class="data type"><span class="data-title">namaBarang</span>{%for i in ind%}<span class="data-list">{{df[i][3]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">jumlah</span>{%for i in ind%}<span class="data-list">{{df[i][4]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">totalHarga</span>{%for i in ind%}<span class="data-list">{{df[i][5]}}.000</span>{%endfor%}</div>
+          </div>
+        </div>
+        {%elif rekap == 'penjualan_perbulan'%}
+        <div class="activity">
+          <div class="title"><i class="uil uil-clock-three"></i><span class="text">transaksi penjualan perbulan</span></div>
+          <div class="activity-data">
+            <div class="data names"><span class="data-title">tahun_bulan</span>{% for i in ind%}<span class="data-list">{{df[i][0]}}</span>{%endfor%}</div>
+            <div class="data type"><span class="data-title">cuttingMobil</span>{%for i in ind%}<span class="data-list">{{df[i][1]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">cuttingLainnya</span>{%for i in ind%}<span class="data-list">{{df[i][2]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">totalCutting</span>{%for i in ind%}<span class="data-list">{{df[i][3]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">totalAksesoris</span>{%for i in ind%}<span class="data-list">{{df[i][4]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">totalTransaksi</span>{%for i in ind%}<span class="data-list">{{df[i][5]}}</span>{%endfor%}</div>
+          </div>
+        </div>
+        {%elif rekap == 'prediksi_penjualan'%}
+        <div class="activity">
+          <div class="title"><i class="uil uil-comments"></i><span class="text">data training</span></div>
+          <div class="activity-data">
+            <div class="data names"><span class="data-title">tahun_bulan</span>{% for i in ind%}<span class="data-list">{{df[i][0]}}</span>{%endfor%}</div>
+            <div class="data type"><span class="data-title">banyakCuttingMobil</span>{%for i in ind%}<span class="data-list">{{df[i][1]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">totalTransaksi</span>{%for i in ind%}<span class="data-list">{{df[i][2]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">keuntungan</span>{%for i in ind%}<span class="data-list">{{df[i][3]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">penjualan</span>{%for i in ind%}<span class="data-list">{{df[i][4]}}</span>{%endfor%}</div>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="title"><i class="uil uil-share"></i><span class="text">data testing</span></div>
+          <div class="activity-data">
+            <div class="data names"><span class="data-title">tahun_bulan</span>{% for i in ind2%}<span class="data-list">{{df2[i][0]}}</span>{%endfor%}</div>
+            <div class="data type"><span class="data-title">banyakCuttingMobil</span>{%for i in ind2%}<span class="data-list">{{df2[i][1]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">totalTransaksi</span>{%for i in ind2%}<span class="data-list">{{df2[i][2]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">keuntungan</span>{%for i in ind2%}<span class="data-list">{{df2[i][3]}}</span>{%endfor%}</div>
+          </div>
+        </div>
+
+        <div class="activity">
+          <div class="title"><i class="uil uil-tachometer-fast-alt"></i><span class="text">shape dataset: {{shape_df[0]}} {{shape_df[1]}}</span></div>
+          <div class="title"><i class="uil uil-comments"></i><span class="text">accuracy: {{accuracy}}</span></div>
+          <div class="title"><i class="uil uil-share"></i><span class="text">precision: {{precision}}</span></div>
+          <div class="title"><i class="uil uil-tachometer-fast-alt"></i><span class="text">recall: {{recall}}</span></div>
+        </div>
+
+        <div class="activity">
+          <div class="title"><i class="uil uil-share"></i><span class="text">confusion matrix</span></div>
+          <div class="activity-data">
+            <div class="data status"><span class="data-title">hasil prediksi</span>
+              <span class="data-list">penjualan meningkat</span><span class="data-list">penjualan menurun</span></div>
+            <div class="data status"><span class="data-title">kenyataannya penjualan meningkat</span>{%for i in ind3%}<span class="data-list">{{df3[i][0]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">kenyataannya penjualan menurun</span>{%for i in ind3%}<span class="data-list">{{df3[i][1]}}</span>{%endfor%}</div>
+          </div>
+        </div>
+
+        <div class="activity">
+          <div class="title"><i class="uil uil-tachometer-fast-alt"></i><span class="text">classification report</span></div>
+          <div class="activity-data">
+            <div class="data names"><span class="data-title"></span><span class="data-list">0</span><span class="data-list">1</span><span class="data-list">accuracy</span><span class="data-list">macro avg</span><span class="data-list">weighted avg</span></div>
+            <div class="data type"><span class="data-title">precision</span>{%for i in ind4%}<span class="data-list">{{df4[i][0]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">recall</span>{%for i in ind4%}<span class="data-list">{{df4[i][1]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">f1-score</span>{%for i in ind4%}<span class="data-list">{{df4[i][2]}}</span>{%endfor%}</div>
+            <div class="data status"><span class="data-title">support</span>{%for i in ind4%}<span class="data-list">{{df4[i][3]}}</span>{%endfor%}</div>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="title"><i class="uil uil-clock-three"></i><span class="text">hasil prediksi penjualan</span></div>
+          <div class="activity-data">
+            <div class="data names"><span class="data-title">tahun_bulan</span>{% for i in ind5%}{%if i in misval%}<span class="data-list" style="background-color:pink;">{{df5[i][0]}}</span>{%else%}<span class="data-list">{{df5[i][0]}}</span>{%endif%}{%endfor%}</div>
+            <div class="data type"><span class="data-title">banyakCuttingMobil</span>{%for i in ind5%}{%if i in misval%}<span class="data-list" style="background-color:pink;">{{df5[i][1]}}</span>{%else%}<span class="data-list">{{df5[i][1]}}</span>{%endif%}{%endfor%}</div>
+            <div class="data status"><span class="data-title">totalTransaksi</span>{%for i in ind5%}{%if i in misval%}<span class="data-list" style="background-color:pink;">{{df5[i][2]}}</span>{%else%}<span class="data-list">{{df5[i][2]}}</span>{%endif%}{%endfor%}</div>
+            <div class="data status"><span class="data-title">keuntungan</span>{%for i in ind5%}{%if i in misval%}<span class="data-list" style="background-color:pink;">{{df5[i][3]}}</span>{%else%}<span class="data-list">{{df5[i][3]}}</span>{%endif%}{%endfor%}</div>
+            <div class="data status"><span class="data-title">hasil prediksi penjualan</span>{%for i in ind5%}{%if i in misval%}<span class="data-list" style="background-color:pink;">{{df5[i][4]}}</span>{%else%}<span class="data-list">{{df5[i][4]}}</span>{%endif%}{%endfor%}</div>
+          </div>
+        </div>
+        <div class="activity">
+          <div class="title"><i class="uil uil-comments"></i><span class="text">feature importances</span></div>
+          <div class="activity-data">
+            <div class="data names"><span class="data-title">banyakCuttingMobil</span><span class="data-list">{{fimpor[0]}}</span></div>
+            <div class="data names"><span class="data-title">totalTransaksi</span><span class="data-list">{{fimpor[1]}}</span></div>
+            <div class="data names"><span class="data-title">keuntungan</span><span class="data-list">{{fimpor[2]}}</span></div>
+          </div>
+        </div>
+        {%endif%}
+      </div>
+  </section>
+  <script src="{{url_for('static',filename='js/script_bos.js')}}"></script>
+</body>
+</html>

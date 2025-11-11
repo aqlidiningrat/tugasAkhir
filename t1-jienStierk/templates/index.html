@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<!-- Coding by CodingLab | www.codinglabweb.com  -->
+<html lang="id" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Al-Munawwarah-Cutting-Stiker</title>
+  <link rel="stylesheet" href="{{url_for('static',filename='css/swiper-bundle.min.css')}}"> <!-- Swiper JS CSS-->
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'> <!-- Boxicons -->
+  <link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}"> <!-- CSS -->
+  <!-- favicon_io -->
+  <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='favicon_io/apple-touch-icon.png')}}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='favicon_io/favicon-32x32.png')}}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename='favicon_io/favicon-16x16.png')}}">
+  <link rel="manifest" href="{{url_for('static',filename='favicon_io/site.webmanifest')}}">
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav container flex">
+      <a href="#" class="logo-content flex"><span class="logo-text">Al-Munawwarah-Cutting-Stiker</span></a>
+      <div class="menu-content">
+        <ul class="menu-list flex">
+          {%if not brg%}<li><a href="#home" class="nav-link active-navlink">Beranda</a></li>{%endif%}
+          <li><a href="#about" class="nav-link">Tentang</a></li>
+          <li><a href="#menu" class="nav-link">Produk</a></li>
+          <li><a href="#review" class="nav-link">Ulasan</a></li>
+        </ul>
+        <div class="media-icons flex">
+          <a href="https://www.facebook.com"><i class='bx bxl-facebook'></i></a>
+          <a href="https://twitter.com"><i class='bx bxl-twitter' ></i></a>
+          <a href="https://www.instagram.com"><i class='bx bxl-instagram-alt' ></i></a>
+          <a href="https://www.youtube.com"><i class='bx bxl-youtube'></i></a>
+        </div>
+        <i class='bx bx-x navClose-btn'></i>
+      </div>
+      <div class="contact-content flex">
+        <i class='bx bx-phone phone-icon' ></i>
+        <span class="phone-number">0813-4851-2529 Maulidin Fikri</span>
+      </div>
+      <i class='bx bx-menu navOpen-btn'></i>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Home Section -->
+    {%if not brg%}
+    <section class="home" id="home">
+      <div class="home-content">
+        <div class="swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <img src="{{url_for('static',filename='images/img1.png')}}" alt="" class="home-img">
+              <div class="home-details">
+                <div class="home-text">
+                  <h4 class="homeSubtitle">Perpaduan Seni dan Estetika</h4>
+                  <h2 class="homeTitle">Stiker Kaca Dengan Cutting Yang Sempurna</h2>
+                </div>
+                {%if not an%}<a class="button" href="#menu">Lihat Produk</a>{%else%}<a class="button" href="#menu">Pesanan atas nama {{an}}</a>{%endif%}
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="{{url_for('static',filename='images/img2.png')}}" alt="" class="home-img">
+              <div class="home-details">
+                <div class="home-text">
+                  <h4 class="homeSubtitle">Cutting Stiker Kualitas Terbaik</h4>
+                  <h2 class="homeTitle">Cutting Stiker Eksklusif<br>Sesuai Keinginan Anda</h2>
+                </div>
+                {%if not an%}<a class="button" href="#menu">Lihat Produk</a>{%else%}<a class="button" href="#menu">Pesanan atas nama {{an}}</a>{%endif%}
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <img src="{{url_for('static', filename='images/img3.png')}}" alt="" class="home-img">
+              <div class="home-details">
+                <div class="home-text">
+                  <h4 class="homeSubtitle">Memilih Aksesoris Untuk Kendaraan Anda</h4>
+                  <h2 class="homeTitle">Perlengkapan Aksesoris<br>Motor Dan Mobil</h2>
+                </div>
+                {%if not an%}<a class="button" href="#menu">Lihat Produk</a>{%else%}<a class="button" href="#menu">Pesanan atas nama {{an}}</a>{%endif%}
+              </div>
+            </div>
+          </div>
+          <div class="swiper-button-next swiper-navBtn"></div>
+          <div class="swiper-button-prev swiper-navBtn"></div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    {%endif%}
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+      <div class="about-content container">
+        <div class="about-imageContent">
+          {%if not brg%}<img src="{{url_for('static',filename='images/IMG-20250420-WA0006.jpg')}}" alt="" class="about-img">
+          {%else%}<img src="{{url_for('static',filename='images/'+brg+'.png')}}" alt="" class="about-img">{%endif%}
+          <div class="aboutImg-textBox">
+            <i class='bx bx-heart heart-icon flex'></i>
+            {%if not brg%}<p class="content-description">Transisi Cutting Stiker Yang Luar Biasa</p>
+            {%else%}<p class="content-description">Rp {{dfv[4]}}.000</p>{%endif%}
+          </div>
+        </div>
+        {%if not brg%}
+        <div class="about-details">
+          <div class="about-text">
+            <h4 class="content-subtitle"><i>Al-Munawwarah-Cutting-Stiker</i></h4>
+            <h2 class="content-title">Kami Menggabungkan Klasik<br>Dan Modernitas</h2>
+            <p class="content-description">Kami sangat menghargai kepercayaan Anda. Klien kami memilih kami dan produk kami karena mereka tahu kami adalah yang terbaik.</p>
+            <ul class="about-lists flex"><li class="about-list">Cutting</li><li class="about-list dot">.</li><li class="about-list">Stiker</li><li class="about-list dot">.</li><li class="about-list">Aksesoris</li></ul>
+          </div>
+          <div class="about-buttons flex">
+            <a class="button" href="#home">Tentang Kami</a>
+            <a href="#menu" class="about-link flex">
+              <span class="link-text">Lihat Lebih Lanjut</span>
+              <i class='bx bx-right-arrow-alt about-arrowIcon'></i>
+            </a>
+          </div>
+        </div>
+        {%else%}
+
+        <div class="about-details">
+          <div class="about-text">
+            <h4 class="content-subtitle"><i>Al-Munawwarah-Cutting-Stiker</i></h4>
+            <h2 class="content-title">{{dfv[0]}}<br>{{dfv[1]}}</h2>
+            <p class="content-description">{{dfv[2]}}</p>
+            <ul class="about-lists flex"><li class="about-list">{{dfv[0]}}</li><li class="about-list dot">.</li><li class="about-list">{{dfv[1]}}</li><li class="about-list dot">.</li><li class="about-list">{{dfv[3]}}</li></ul>
+          </div>
+          <div class="about-buttons flex">
+            <a class="button" href="#review">Tambah Ke Keranjang</a>
+            <a href="#review" class="about-link flex">
+              <span class="link-text">Proses Pemesanan</span>
+              <i class='bx bx-right-arrow-alt about-arrowIcon'></i>
+            </a>
+          </div>
+        </div>
+        {%endif%}
+      </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section class="section menu" id="menu">
+        <div class="menu-container container">
+          <div class="meu-text">
+            <h4 class="section-subtitle"><i>Produk Kami</i></h4>
+            <h2 class="section-title">Aksesoris dan Cutting-Stiker Populer Kami</h2>
+            <p class="section-description">Tempat kami dirancang oleh arsitektur profesional dengan psikolog untuk membangun tempat terbaik yang cocok untuk anda.</p>
+          </div>
+          <div class="menu-content">
+            <div class="menu-items">
+              {%for i in df[0]%}
+              <div class="menu-item flex">
+                <img src="{{url_for('static',filename='images/'+df[i][1]+'.png')}}" alt="" class="menu-img">
+                <div class="menuItem-details"><a class="menuItem-topic" href="{{url_for('home2', lihatBarang=df[i][1])}}">{{df[i][1]}}</a><p class="menuItem-des">{{df[i][0]}} {{df[i][1]}}</p></div>
+                <div class="menuItem-price flex"><span class="discount-price">Rp{{df[i][4]}}.000</span></div>
+              </div>
+              {%endfor%}
+            </div>
+            {%if not an%}
+            <div class="time-table">
+              <span class="time-topic">Kategori Waktu</span>
+              <ul class="time-lists">
+                <li class="time-list flex"><span class="open-day"> Minggu</span><span class="open-time">07.00 - 17.00 wib</span></li>
+                <li class="time-list flex"><span class="open-day"> Senin</span><span class="open-time">07.00 - 17.00 wib</span></li>
+                <li class="time-list flex"><span class="open-day"> Selasa</span><span class="open-time">07.00 - 17.00 wib</span></li>
+                <li class="time-list flex"><span class="open-day"> Rabu</span><span class="open-time">07.00 - 17.00 wib</span></li>
+                <li class="time-list flex"><span class="open-day"> Kamis</span><span class="open-time">07.00 - 17.00 wib</span></li>
+                <li class="time-list flex"><span class="open-day"> Jum'at</span><span class="open-time">Tutup</span></li>
+                <li class="time-list flex"><span class="open-day"> Sabtu</span><span class="open-time">07.00 - 17.00 wib</span></li>
+              </ul>
+            </div>
+            {%else%}
+            <div class="time-table">
+              <span class="time-topic">Pesanan atas nama {{an}}</span>
+              <ul class="time-lists">
+                {%for i in lendfan%}
+                <li class="time-list flex"><span class="open-day">{{dfan[i][0]}}<hr>{{dfan[i][1]}}<hr>{{dfan[i][2]}}</span><span class="open-time">{{dfan[i][3]}}.000</span></li>
+                {%endfor%}
+                <li class="time-list flex"><span class="open-day"><b>Total Harga Pesanan<b></span><span class="open-time">{{total}}.000</span></li>
+              </ul>
+            </div>
+            {%endif%}
+          </div>
+        </div>
+    </section>
+
+    {%if not brg%}
+    <!-- Reviews Section -->
+    <section class="section review" id="review">
+      <div class="review-container container">
+        <div class="review-text">
+          <h4 class="section-subtitle"><i>Ulasan</i></h4>
+          <h2 class="section-title">Apa kata klien kami</h2>
+          <!-- <p class="section-description">Beberapa ulasan yang pelanggan katakan tentang cutting stiker kami!</p> -->
+        </div>
+        <div class="tesitmonial swiper mySwiper">
+          <div class="swiper-wrapper">
+            <div class="testi-content swiper-slide flex">
+              <img src="{{url_for('static',filename='images/IMG-20250420-WA0005.jpg')}}" alt="" class="review-img">
+              <p class="review-quote">Stiker anda tidak akan berkarat meskipun didalam lumpur.</p><i class='bx bxs-quote-alt-left quote-icon'></i>
+              <div class="testi-personDetails flex"><span class="name">Penguasa Lumpur</span><span class="job">Bimo 102L</span></div>
+            </div>
+            <div class="testi-content swiper-slide flex">
+              <img src="{{url_for('static',filename='images/IMG-20250420-WA0008.jpg')}}" alt="" class="review-img">
+              <p class="review-quote">Stiker anda selalu tepat sasaran</p><i class='bx bxs-quote-alt-left quote-icon'></i>
+              <div class="testi-personDetails flex"><span class="name">DPW Partai Aceh</span><span class="job">Wilayah Aceh Timur</span></div>
+            </div>
+            <div class="testi-content swiper-slide flex">
+              <img src="{{url_for('static',filename='images/IMG-20250420-WA0001.jpg')}}" alt="" class="review-img">
+              <p class="review-quote">Bangun dengan tekad, tidur dengan kepuasan, namun jika stiker dengan Al-Munawwarah-Cutting-Stiker</p><i class='bx bxs-quote-alt-left quote-icon'></i>
+              <div class="testi-personDetails flex"><span class="name">Buana's</span><span class="job">PT.Global Timur Energi</span></div>
+            </div>
+          </div>
+          <div class="swiper-button-next swiper-navBtn"></div><div class="swiper-button-prev swiper-navBtn"></div><div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- Newsletter Section -->
+    <section class="section newsletter">
+      <div class="newletter-container container">
+        <a class="logo-content flex"><span class="logo-text">Al-Munawwarah-Cutting-Stiker</span></a>
+        <p class="section-description">Tempat yang sempurna untuk sebuah inovasi, seni dan estetika.</p>
+        <form class="newsletter-inputBox" action="/" method="post">
+          <input name="lt" type="email" placeholder="username@password" class="newletter-input" required autocomplete="off"><button class="button newsletter-button">Login Toko</button>
+        </form>
+        <div class="newsletter media-icons flex">
+          <a href="https://www.facebook.com"><i class='bx bxl-facebook'></i></a><a href="https://twitter.com"><i class='bx bxl-twitter' ></i></a><a href="https://www.instagram.com"><i class='bx bxl-instagram-alt' ></i></a><a href="https://www.youtube.com"><i class='bx bxl-youtube'></i></a>
+        </div>
+      </div>
+    </section>
+    {%else%}
+
+    <!-- Newsletter Section -->
+    <section class="section newsletter" id="review">
+      <div class="newletter-container container">
+        <a class="logo-content flex"><span class="logo-text">Al-Munawwarah-Cutting-Stiker</span></a>
+        <p class="section-description">Datang langsung ke toko kami melalui alamat yang tertera atau hubungi nomor yang tertera dibawah ini untuk info pemesanan lebih lanjut<br>{{dfv[0]}}, {{dfv[1]}}, RP{{dfv[4]}}.000 {{dfv[3]}}</p>
+        <form class="newsletter-inputBox" action="/{{brg}}" method="post">
+          {%if brg == 'Cutting Stiker'%}
+          <input type="hidden" name="hrg" value=""><input type="hidden" name="jns" value="{{dfv[3]}}">
+          <input name="psn_now" type="email" placeholder="ket-jlh-Hrg@pembeli" class="newletter-input" required autocomplete="off"><button class="button newsletter-button">Pesan Sekarang</button>
+          {%else%}
+          <input type="hidden" name="hrg" value="{{dfv[4]}}"><input type="hidden" name="jns" value="{{dfv[3]}}">
+          <input name="psn_now" type="email" placeholder="Jumlah@Pembeli" class="newletter-input" required autocomplete="off"><button class="button newsletter-button">Pesan Sekarang</button>
+          {%endif%}
+        </form>
+        <div class="newsletter media-icons flex">
+          <a href="https://www.facebook.com"><i class='bx bxl-facebook'></i></a><a href="https://twitter.com"><i class='bx bxl-twitter' ></i></a><a href="https://www.instagram.com"><i class='bx bxl-instagram-alt' ></i></a><a href="https://www.youtube.com"><i class='bx bxl-youtube'></i></a>
+        </div>
+      </div>
+    </section>
+    {%endif%}
+
+    <!-- Footer Section -->
+    <footer class="section footer">
+      <div class="footer-container container">
+        <div class="footer-content">
+          <a href="#home" class="logo-content flex">
+            <span class="logo-text">Al-Munawwarah-Cutting-Stiker</span>
+          </a>
+          <p class="content-description">Menyediakan berbagai macam jenis cutting stiker dan aksesoris kendaraan yang lengkap untuk motor dan mobil anda dengan tempat dan fasilitas yang sangat nyaman. Informasi pemesanan hubungi 0813-4851-2529 a.n Maulidin Fikri</p>
+          <div class="footer-location flex">
+            <i class='bx bx-map map-icon'></i>
+            <div class="location-text">Alamat didepan Kantor JNT Peureulak, Jalan lintas Medan Banda Aceh, Aceh Indonesia</div>
+          </div>
+        </div>
+
+        <div class="footer-linkContent">
+          <ul class="footer-links">
+            <h4 class="footerLinks-title">Fasilitas</h4><li><a class="footer-link">Kamar Mandi</a></li><li><a class="footer-link">Ruang Rapat</a></li>
+            <li><a class="footer-link">Ruang Acara</a></li><li><a class="footer-link">Studio Kreatif</a></li><li><a class="footer-link">Mushala</a></li>
+          </ul>
+          <ul class="footer-links">
+            <h4 class="footerLinks-title">Hidangan</h4><li><a class="footer-link">Sarapan Pagi</a></li>
+            <li><a class="footer-link">Minuman Dingin</a></li><li><a class="footer-link">Makanan Ringan</a></li>
+          </ul>
+          <ul class="footer-links">
+            <h4 class="footerLinks-title">Dukungan</h4><li><a class="footer-link">Tentang Kami</a></li><li><a class="footer-link">Tanya Jawab</a></li>
+            <li><a class="footer-link">Kebijakan Privasi</a></li><li><a class="footer-link">Dukung Kami</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copyRight">&#169; Al-Munawwarah-Cutting-Stiker 2025.</div>
+    </footer>
+    {%if not brg%}<a href="#home" class="scrollUp-btn flex"><i class='bx bx-up-arrow-alt scrollUp-icon'></i></a> <!-- Scroll Up -->
+    {%else%}<a href="#about" class="scrollUp-btn flex"><i class='bx bx-up-arrow-alt scrollUp-icon'></i></a> <!-- Scroll Up --> {%endif%}
+  </main>
+  <script src="{{url_for('static',filename='js/swiper-bundle.min.js')}}"></script> <!-- Swiper JS -->
+  <script src="{{url_for('static',filename='js/scrollreveal.js')}}"></script> <!-- Scroll Reveal -->
+  <script src="{{url_for('static',filename='js/script.js')}}"></script> <!-- JavaScript -->
+</body>
+</html>
