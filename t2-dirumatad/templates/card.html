@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<!-- Created By CodingLab - www.codinglabweb.com -->
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style_card.css')}}">
+    <!-- Fontawesome CDN Link -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"/>
+     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+     <!-- favicon -->
+     <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='favicon_io(tmi)/apple-touch-icon.png')}}">
+     <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='favicon_io(tmi)/favicon-32x32.png')}}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon_io(tmi)/favicon-16x16.png')}}">
+     <link rel="manifest" href="{{url_for('static', filename='favicon_io(tmi)/site.webmanifest')}}">
+
+     <!-- HTML Meta Tags -->
+     <title>Muhammad Tomi</title>
+     <meta name="description" content="muhammadTomi_2011016" />
+     <!-- Google / Search Engine Tags -->
+     <meta itemprop="name" content="Muhammad Tomi" />
+     <meta itemprop="description" content="muhammadTomi_2011016" />
+     <meta itemprop="image" content="https://raw.githubusercontent.com/wandinulaqli/t2-dirumatad-TM/refs/heads/main/static/favicon_io(tmi)/android-chrome-512x512.png" />
+     <!-- Facebook Meta Tags -->
+     <meta property="og:url" content="https://wandinulaqli.github.io/t2-dirumatad-TM/" />
+     <meta property="og:type" content="website" />
+     <meta property="og:title" content="Muhammad Tomi" />
+     <meta property="og:description" content="muhammadTomi_2011016" />
+     <meta property="og:image" content="https://raw.githubusercontent.com/wandinulaqli/t2-dirumatad-TM/refs/heads/main/static/favicon_io(tmi)/android-chrome-512x512.png" />
+     <!-- Twitter Meta Tags -->
+     <meta name="twitter:card" content="summary_large_image" />
+     <meta name="twitter:title" content="Muhammad Tomi" />
+     <meta name="twitter:description" content="muhammadTomi_2011016" />
+     <meta name="twitter:image" content="https://raw.githubusercontent.com/wandinulaqli/t2-dirumatad-TM/refs/heads/main/static/favicon_io(tmi)/android-chrome-512x512.png" />
+     <!-- Meta Tags Generated via https://heymeta.com -->
+   </head>
+<body>
+  <div class="background-image"></div>
+  {%for i in lenDT%}
+    <div class="card">
+      <img src="{{url_for('displayImage', jk=data['JENIS KELAMIN'][i], kls=data.KELAS[i])}}"/>
+      <h3>NISN: {{data.NISN[i]}}</h3>
+      <div class="focus-content">
+        <p>
+          <center>
+            <table border="" cellpadding="1" cellspacing="0" style="text-align: center;">
+              <caption>
+                {{data['NAMA PESERTA DIDIK'][i]}}, {{data['JENIS KELAMIN'][i]}}, {{data['TEMPAT LAHIR'][i]}}, {{data['TANGGAL LAHIR'][i]}},
+                Agama: {{data.AGAMA[i]}}, Kelas: {{data.KELAS[i]}}.
+              </caption>
+              <tr><th>nilaiUTS</th><th>nilaiUAS</th><th>nilaiUKK</th><th>nilaiAbsen</th></tr>
+              <tr><td>{{data.UTS[i]}}</td><td>{{data.UAS[i]}}</td><td>{{data.UKK[i]}}</td><td>{{data.ABSEN[i]}}</td></tr>
+              <tr><td colspan="4">{{data['TOTAL NILAI'][i]}}</td></tr>
+              {%if data['Hasil Prediksi'][i] == 'LULUS PRESTASI'%}
+              <tr><td colspan="4" style="background-color: green;">{{data['Hasil Prediksi'][i]}}</td></tr>
+              {%else%}
+              <tr><td colspan="4" style="background-color: grey;">{{data['Hasil Prediksi'][i]}}</td></tr>
+              {%endif%}
+            </table>
+          </center>
+          <hr>
+          {%if sts !='Admin'%}
+          <button style="margin-right:100px; width:80px; height:30px;">
+            <a href="{{url_for('ubahData',opsi='Ubah', nisn=data.NISN[i], usnm=usnm, sts=sts)}}" style="text-decoration:none; font-weight:bold; font-size:14px; color:black;">Ubah</a>
+          </button>
+          {%else%}
+          <button style="margin-right:100px; width:80px; height:30px;">
+            <a href="{{url_for('ubahData',opsi='Ubah', nisn=data.NISN[i], usnm=usnm, sts=sts)}}" style="text-decoration:none; font-weight:bold; font-size:14px; color:black;">Ubah</a>
+          </button>
+          <button style="margin-left:60px; width:80px; height:30px;">
+            <a href="{{url_for('hapusData',opsi='Hapus', nisn=data.NISN[i], usnm=usnm, sts=sts)}}" style="text-decoration:none; font-weight:bold; font-size:14px; color:black;">Hapus</a>
+          </button>
+          {%endif%}
+        </p>
+      </div>
+    </div>
+  {%endfor%}
+</body>
+</html>

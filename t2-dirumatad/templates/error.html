@@ -1,0 +1,83 @@
+<!-- 200 OK: Permintaan berhasil, dan respons dikirim kembali.[hapus] -->
+<!-- 201 Created: Permintaan berhasil dan sumber baru telah dibuat. [tambah] -->
+<!-- 301 Moved Permanently: URL sumber daya yang diminta telah berubah secara permanen. [ubah] -->
+<!-- 400 Bad Request: Server tidak dapat memahami permintaan karena sintaks yang buruk. [data-tidak-ditemukan] -->
+
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="stylesheet" href="{{url_for('static', filename='style_error.css')}}" />
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='favicon_io(tmi)/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='favicon_io(tmi)/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon_io(tmi)/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='favicon_io(tmi)/site.webmanifest')}}">
+
+    <!-- HTML Meta Tags -->
+    <title>Muhammad Tomi</title>
+    <meta name="description" content="muhammadTomi_2011016" />
+    <!-- Google / Search Engine Tags -->
+    <meta itemprop="name" content="Muhammad Tomi" />
+    <meta itemprop="description" content="muhammadTomi_2011016" />
+    <meta itemprop="image" content="https://raw.githubusercontent.com/wandinulaqli/t2-dirumatad-TM/refs/heads/main/static/favicon_io(tmi)/android-chrome-512x512.png" />
+    <!-- Facebook Meta Tags -->
+    <meta property="og:url" content="https://wandinulaqli.github.io/t2-dirumatad-TM/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Muhammad Tomi" />
+    <meta property="og:description" content="muhammadTomi_2011016" />
+    <meta property="og:image" content="https://raw.githubusercontent.com/wandinulaqli/t2-dirumatad-TM/refs/heads/main/static/favicon_io(tmi)/android-chrome-512x512.png" />
+    <!-- Twitter Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Muhammad Tomi" />
+    <meta name="twitter:description" content="muhammadTomi_2011016" />
+    <meta name="twitter:image" content="https://raw.githubusercontent.com/wandinulaqli/t2-dirumatad-TM/refs/heads/main/static/favicon_io(tmi)/android-chrome-512x512.png" />
+    <!-- Meta Tags Generated via https://heymeta.com -->
+  </head>
+  <body>
+    <div class="center">
+      <section class="error">
+        <h1 class="error__title">{{stsSvr[0]}}</h1>
+        <h2 class="error__type">{{stsSvr[1]}}: {{opsi}}</h2>
+        {%if stsSvr[0] == '400'%}
+        <p class="error__cta">{{stsSvr[2]}}. Coba pastikan apakah NISN yang dinput sudah benar?<br>
+          <a class="error__link error__link--blue" href="{{url_for('data',opsi='masuk', usnm=usnm, sts=sts)}}">Pastikan NISN</a>
+        </p>
+        {%elif stsSvr[0] == '404'%}
+        <p class="error__cta">{{stsSvr[2]}}. Coba pastikan apakah NISN yang dinput sudah benar?<br>
+          <a class="error__link error__link--blue" href="{{url_for('data',opsi='masuk', usnm=usnm, sts=sts)}}">Pastikan NISN</a>
+        </p>
+        {%else%}
+        <p class="error__cta">{{stsSvr[2]}}. Perbaikan disisi server.</p>
+        {%endif%}
+      </section>
+    </div>
+    <div class="astronaut">
+      <img src="https://images.vexels.com/media/users/3/152639/isolated/preview/506b575739e90613428cdb399175e2c8-space-astronaut-cartoon-by-vexels.png" alt="" class="src">
+    </div>
+    <script type="text/javascript">
+      document.addEventListener("DOMContentLoaded",function(){
+
+      var body=document.body;
+      setInterval(createStar,100);
+      function createStar(){
+       var right=Math.random()*500;
+       var top=Math.random()*screen.height;
+       var star=document.createElement("div");
+      star.classList.add("star")
+      body.appendChild(star);
+      setInterval(runStar,10);
+       star.style.top=top+"px";
+      function runStar(){
+       if(right>=screen.width){
+         star.remove();
+       }
+       right+=3;
+       star.style.right=right+"px";
+      }
+      }
+      })
+    </script>
+  </body>
+</html>
