@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TA_wanDInulAqli</title>
+    <link rel="stylesheet" href="{{url_for('static',filename='style_saran.css')}}">
+    <!-- favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static',filename='favicon3/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static',filename='favicon3/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static',filename='favicon3/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static',filename='favicon3/site.webmanifest')}}">
+
+  </head>
+  <body>
+    <div class="wrapper">
+      {%if udah%}
+      <h2>Pesan anda telah terkirim Thank you!! {{udah}}</h2><br>
+      <a href="{{url_for('home')}}">kembali</a>
+      {%else%}
+      <h2>Kritik dan Saran</h2>
+      <form action="" method="post">
+        <div class="input-box">
+          <input name="nma" type="text" placeholder="Siapa nama anda?" required autocomplete="off">
+        </div>
+        <div class="input-box">
+          <input name="gmn" type="text" placeholder="Gimana aplikasinya bagus?" required autocomplete="off">
+        </div>
+        <div class="input-box">
+          <input name="krg" type="text" placeholder="Apa yang kurang dari aplikasinya?" required autocomplete="off">
+        </div>
+        <div class="input-box">
+          <input name="rtg" type="text" placeholder="Berikan rating 1-10" required autocomplete="off">
+        </div>
+        <div class="policy">
+          <input type="checkbox">
+          <h3>Kritik dan saran yang bermanfaat</h3>
+        </div>
+        <div class="input-box button">
+          <input type="Submit" value="Kirim">
+        </div>
+        <div class="text">
+          <h3>TA_wanDinulAqli</h3>
+        </div>
+      </form>
+      {%endif%}
+    </div>
+  </body>
+</html>

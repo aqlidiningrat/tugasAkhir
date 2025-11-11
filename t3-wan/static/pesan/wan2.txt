@@ -1,0 +1,4 @@
+ *atasaNama: wan2
+ *gimanaAplikasinyaBagus: wcac
+ *apaYangKurangDariAplikasinya: wcwc
+ *berikanRating1-10: wawv
