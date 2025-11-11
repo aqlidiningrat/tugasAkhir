@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+    <style media="screen">
+      * {
+        font-family: "{{fonts}}", sans-serif;
+      }
+      body::before {
+        background: url("https://raw.githubusercontent.com/aqlidiningrat/backgroundimg/refs/heads/main/pdpotrait/{{bgimg}}"), #000;
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+      }
+    </style>
+    <!-- favicon_io -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{{url_for('static', filename='favicon_io/apple-touch-icon.png')}}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{url_for('static', filename='favicon_io/favicon-32x32.png')}}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{url_for('static', filename='favicon_io/favicon-16x16.png')}}">
+    <link rel="manifest" href="{{url_for('static', filename='favicon_io/site.webmanifest')}}">
+    <title>@putriamaMelatiSukma2111021</title>
+  </head>
+  <body>
+    <div class="wrapper">
+      <form action="/" method="post">
+        <h2>Login</h2>
+        <span>{{salah}}</span>
+          <div class="input-field">
+          <input name="usnm" type="text" required autocomplete="off">
+          <label>username</label>
+        </div>
+        <div class="input-field">
+          <input name="pswd" type="password" required autocomplete="off">
+          <label>password</label>
+        </div>
+        <!-- <div class="forget">
+          <label for="remember">
+            <input type="checkbox" id="remember">
+            <p>Remember me</p>
+          </label>
+          <a href="#">Forgot password?</a>
+        </div> -->
+        <button type="submit">Log In</button>
+        <div class="register">
+          <p>@putriamaMelatiSukma <a href="#">2111021</a></p>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
